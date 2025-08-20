@@ -17,7 +17,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 relative">
           <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex-shrink-0 flex items-center gap-3">
-            <Image src="/logo.png" alt="Nuvirra Logo" width={120} height={40} className="h-8 w-auto" />
+            <Image src="/logo.png" alt="Nuvirra Logo" width={120} height={40} className="h-16 w-auto" />
             <span className="text-xl font-bold text-nuvirra-primary hidden sm:block"></span>
           </div>
 
