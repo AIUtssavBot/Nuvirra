@@ -96,7 +96,7 @@ function Typewriter({ phrases }: TypewriterProps) {
       const startId = setTimeout(() => setVisibleText(phrases[0]?.slice(0, 1) || ""), 300)
       return () => clearTimeout(startId)
     }
-  }, [])
+  }, [phrases, visibleText])
 
   return (
     <span>

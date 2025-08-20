@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Check } from "lucide-react"
 
 const features = [
@@ -35,10 +36,13 @@ export default function Features() {
             </ul>
           </div>
           <div className="lg:order-first">
-            <img
+            <Image
               src="/AI%20in%20Healthcare_%20No,%20the%20Robots%20Are%20Not%20Taking%20Over.jpeg"
               alt="AI in Healthcare"
+              width={1600}
+              height={1067}
               className="rounded-lg shadow-lg w-full h-auto"
+              priority
             />
           </div>
         </div>

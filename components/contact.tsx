@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -20,14 +18,14 @@ export default function Contact() {
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
   const [statusType, setStatusType] = useState<"success" | "error" | null>(null)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: { target: { name: string; value: string } }) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     setIsSubmitting(true)
     setStatusMessage(null)
@@ -41,8 +39,9 @@ export default function Contact() {
       })
 
       if (!response.ok) {
-        const data = await response.json().catch(() => ({}))
-        throw new Error((data as any)?.error || "Failed to send message")
+        type ErrorResponse = { error?: string }
+        const data = (await response.json().catch(() => ({} as ErrorResponse))) as ErrorResponse
+        throw new Error(data.error ?? "Failed to send message")
       }
 
       setStatusType("success")
@@ -66,7 +65,7 @@ export default function Contact() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to transform your business with AI? Let's discuss your needs and explore how we can help.
+            Ready to transform your business with AI? Let&apos;s discuss your needs and explore how we can help.
           </p>
         </div>
 
