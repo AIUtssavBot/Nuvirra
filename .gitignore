@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+RESEND_API_KEY=re_LLku1hLQ_2nzUXNK6k8K9DNufr5W2QgWT
+MAIL_TO=aim.utssav@gmail.com  # Optional, defaults to nuvirra9@gmail.com
+
 # Logs
 logs
 *.log
