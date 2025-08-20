@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
     const { data, error } = await resend.emails.send({
       from: `${body.name || "Nuvirra Website"} <${resendSenderEmail}>`,
       to: [toAddress],
-      reply_to: body.email,
+      replyTo: body.email,
       subject: `New message from ${body.name}`,
       text: `Name: ${body.name}\nEmail: ${body.email}\nPhone: ${body.phone || "-"}\nCompany: ${body.company || "-"}\n\n${body.message}`,
       html: html,
